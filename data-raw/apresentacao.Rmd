@@ -1,0 +1,179 @@
+---
+title: "Cálculo de Indicadores Educacionais com o R"
+subtitle: "Núcleo de Pesquisa em Ciência de Dados e Otimização"  
+author: 
+  - "Prof. Dr. Hidelbrando Ferreira Rodrigues"
+  - "Porf. Me. Augusto Filho"
+  - "Mariah Clara "
+date: '`r Sys.Date()`'
+output:
+  xaringan::moon_reader:
+    css: xaringan-themer.css
+    nature:
+      slideNumberFormat: "%current%"
+      highlightStyle: github
+      highlightLines: true
+      ratio: 16:9
+      countIncrementalSlides: true
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(
+  fig.width=5, fig.height=3.5, fig.retina=3,
+  out.width = "90%",
+  cache = FALSE,
+  echo = TRUE,
+  message = FALSE, 
+  warning = FALSE,
+  hiline = TRUE
+)
+
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+style_duo_accent(
+  primary_color = "#1381B0",
+  secondary_color = "#FF961C",
+  inverse_header_color = "#FFFFFF"
+)
+```
+
+## O que é um indicador social
+
+--
+
+### Indicador
+
+> Segundo o INEP (2016), o indicador é um recurso metodológico para auxilar a interpretação da realidade de uma forma sintética. Ele é comumente utilizados para diagnóstico de determinada condição (ambiental, econômica, social, educacional, etc.), para o monitoramento e a avaliação de políticas públicas e para a pesquisa de um modo geral.
+
+
+--
+
+### Indicador Social
+
+>  Indicadores sociais visam traduzir, de forma objetiva, as característica e transformações que ocorrem de uma realidade.
+
+
+--
+
+### Indicador Educacional
+
+> Indicadores educacionais, por sua vez, cumprem a função de produzir informações sobre a situação escolar da sociedade
+
+---
+
+## O que é um indicador social
+
+Nesse contexo, o indicador social busca conferir um aspecto objetivo e sumário para a realidades complexas e para as quais não se possui apenas uma variável explicativa.
+
+
+--
+Para Jannuzzi (2015, p.15), o indicador é:
+
+> "Uma medida em geral quantitativa dotada de significado substantivo, usado para substitutir, quantificar ou operacionalizar um conceito social abstrato, de interesse teórico (para pesquisa acadêmica) ou pragmático (para formulação de políticas). É um recurso metodológico, empiricamente referido, que informa algo sobre um aspecto da realidade social ou sobre mudança que estão se processando na mesma.
+
+
+---
+
+## O que é um indicador social
+
+De modo geral, os indicadores educacionais e sociais constituem esforços metodológicos para *traduzir* e aglutinar as várias dimensões, aspectos ou variáveis de uma realidade em construção final o mais simples e objetiva o possível, mas com forte significado para a compreensão sobre os desafios educacionais, como ilustra de modo simplificado a Figura 1.
+
+
+```{r echo=FALSE, fig.align='center', fig.cap="Figura 1 – Indicadores como sínteses de fenômenos complexos"}
+library(DiagrammeR)
+
+DiagrammeR::grViz("digraph {
+  graph [layout = dot, rankdir = TB]
+  
+  node [shape = rectangle]        
+  rec1 [label = 'Dimensão A']
+  rec2 [label = 'Dimensão B']
+  rec3 [label = 'Dimensão C']
+  rec4 [label = 'Indicador (Síntese)',
+  color = DeepSkyBlue, style = filled, fontcolor = White]
+  
+  # edge definitions with the node IDs
+  rec1 -> rec4 
+  rec2 -> rec4 
+  rec3 -> rec4 
+  }",
+  height = 250)
+
+```
+---
+## O que é um indicador social
+
+- É importante ter conta que todo indicador carrega em si uma concepção e uma visão parcial do femômeno que se propõe a medir.
+
+--
+
+- Quando se usa indicadores compostos por vários aspectos ou que se referem de modo indireto ao objeto da análise, é preciso ter em conta que eles "encerram certa dose de arbitrariedade e precisam de tempo e experimentação para que se possa avaliar sua consistência"
+
+--
+
+- Ao se construir e divulgar indicadores é fundamental deixar explícito que eles representam um aspecto da realidade que foi privilegiado na análise, sempre almejando, com os dados disponíveis, ser o mais significativo possível.
+
+--
+
+- É importante que a apresentação do indicador seja acompanhada de informações sobre as bases de dados utilizadas, as variáveis selecionadas, os recortes operados, os procedimentos estatísticos que amparam sua construção, os critérios que sustentam as escolhas de viariáveis, bem como do significado que se busca atribuir ao fenômeno resumido pelo indicador.
+
+---
+## O que é um indicador social
+
+Em linhas gerais, é importante tomar como propriedades desejáveis dos indicadores as seguintes dimensões:
+
+• corresponder à cobertura populacional necessária;
+
+--
+
+• ser válido, significativo e relevante à realidade que se almeja descrever;
+
+
+--
+
+• ser específico quanto ao processo a ser descrito;
+
+--
+
+• possuir fontes de dados seguras e confiáveis;
+
+--
+
+• ser sensível a esforços de políticas públicas implementadas;
+
+--
+
+• ser específico a efeitos de programas setoriais;
+
+---
+
+## O que é um indicador social
+
+Em linhas gerais, é importante tomar como propriedades desejáveis dos indicadores as seguintes dimensões:
+
+• ser atualizável periodicamente;
+
+--
+
+• possuir consistência e fidedignidade;
+
+--
+
+• ser passível de desagregações em termos espaciais, demográficos e socioeconômicos;
+
+--
+
+• ser dotado de comparabilidade histórica;
+
+--
+
+• ser transparente e de acesso público; e
+
+--
+
+• possuir metodologia de cálculo simples e replicável.

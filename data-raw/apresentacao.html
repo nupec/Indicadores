@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Cálculo de Indicadores Educacionais com o R</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Prof. Dr. Hidelbrando Ferreira Rodrigues" />
+    <meta name="author" content="Porf. Me. Augusto Filho" />
+    <meta name="author" content="Mariah Clara" />
+    <meta name="date" content="2021-09-09" />
+    <script src="apresentacao_files/header-attrs/header-attrs.js"></script>
+    <script src="apresentacao_files/htmlwidgets/htmlwidgets.js"></script>
+    <script src="apresentacao_files/viz/viz.js"></script>
+    <link href="apresentacao_files/DiagrammeR-styles/styles.css" rel="stylesheet" />
+    <script src="apresentacao_files/grViz-binding/grViz.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Cálculo de Indicadores Educacionais com o R
+## Núcleo de Pesquisa em Ciência de Dados e Otimização
+### Prof. Dr. Hidelbrando Ferreira Rodrigues
+### Porf. Me. Augusto Filho
+### Mariah Clara
+### 2021-09-09
+
+---
+
+
+
+
+
+
+## O que é um indicador social
+
+--
+
+### Indicador
+
+&gt; Segundo o INEP (2016), o indicador é um recurso metodológico para auxilar a interpretação da realidade de uma forma sintética. Ele é comumente utilizados para diagnóstico de determinada condição (ambiental, econômica, social, educacional, etc.), para o monitoramento e a avaliação de políticas públicas e para a pesquisa de um modo geral.
+
+
+--
+
+### Indicador Social
+
+&gt;  Indicadores sociais visam traduzir, de forma objetiva, as característica e transformações que ocorrem de uma realidade.
+
+
+--
+
+### Indicador Educacional
+
+&gt; Indicadores educacionais, por sua vez, cumprem a função de produzir informações sobre a situação escolar da sociedade
+
+---
+
+## O que é um indicador social
+
+Nesse contexo, o indicador social busca conferir um aspecto objetivo e sumário para a realidades complexas e para as quais não se possui apenas uma variável explicativa.
+
+
+--
+Para Jannuzzi (2015, p.15), o indicador é:
+
+&gt; "Uma medida em geral quantitativa dotada de significado substantivo, usado para substitutir, quantificar ou operacionalizar um conceito social abstrato, de interesse teórico (para pesquisa acadêmica) ou pragmático (para formulação de políticas). É um recurso metodológico, empiricamente referido, que informa algo sobre um aspecto da realidade social ou sobre mudança que estão se processando na mesma.
+
+
+---
+
+## O que é um indicador social
+
+De modo geral, os indicadores educacionais e sociais constituem esforços metodológicos para *traduzir* e aglutinar as várias dimensões, aspectos ou variáveis de uma realidade em construção final o mais simples e objetiva o possível, mas com forte significado para a compreensão sobre os desafios educacionais, como ilustra de modo simplificado a Figura 1.
+
+
+&lt;div class="figure" style="text-align: center"&gt;
+<div id="htmlwidget-a08ac87076ae950a89fd" style="width:90%;height:250px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-a08ac87076ae950a89fd">{"x":{"diagram":"digraph {\n  graph [layout = dot, rankdir = TB]\n  \n  node [shape = rectangle]        \n  rec1 [label = \"Dimensão A\"]\n  rec2 [label = \"Dimensão B\"]\n  rec3 [label = \"Dimensão C\"]\n  rec4 [label = \"Indicador (Síntese)\",\n  color = DeepSkyBlue, style = filled, fontcolor = White]\n  \n  # edge definitions with the node IDs\n  rec1 -> rec4 \n  rec2 -> rec4 \n  rec3 -> rec4 \n  }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+&lt;p class="caption"&gt;Figura 1 – Indicadores como sínteses de fenômenos complexos&lt;/p&gt;
+&lt;/div&gt;
+---
+## O que é um indicador social
+
+- É importante ter conta que todo indicador carrega em si uma concepção e uma visão parcial do femômeno que se propõe a medir.
+
+--
+
+- Quando se usa indicadores compostos por vários aspectos ou que se referem de modo indireto ao objeto da análise, é preciso ter em conta que eles "encerram certa dose de arbitrariedade e precisam de tempo e experimentação para que se possa avaliar sua consistência"
+
+--
+
+- Ao se construir e divulgar indicadores é fundamental deixar explícito que eles representam um aspecto da realidade que foi privilegiado na análise, sempre almejando, com os dados disponíveis, ser o mais significativo possível.
+
+--
+
+- É importante que a apresentação do indicador seja acompanhada de informações sobre as bases de dados utilizadas, as variáveis selecionadas, os recortes operados, os procedimentos estatísticos que amparam sua construção, os critérios que sustentam as escolhas de viariáveis, bem como do significado que se busca atribuir ao fenômeno resumido pelo indicador.
+
+---
+## O que é um indicador social
+
+Em linhas gerais, é importante tomar como propriedades desejáveis dos indicadores as seguintes dimensões:
+
+• corresponder à cobertura populacional necessária;
+
+--
+
+• ser válido, significativo e relevante à realidade que se almeja descrever;
+
+
+--
+
+• ser específico quanto ao processo a ser descrito;
+
+--
+
+• possuir fontes de dados seguras e confiáveis;
+
+--
+
+• ser sensível a esforços de políticas públicas implementadas;
+
+--
+
+• ser específico a efeitos de programas setoriais;
+
+---
+
+## O que é um indicador social
+
+Em linhas gerais, é importante tomar como propriedades desejáveis dos indicadores as seguintes dimensões:
+
+• ser atualizável periodicamente;
+
+--
+
+• possuir consistência e fidedignidade;
+
+--
+
+• ser passível de desagregações em termos espaciais, demográficos e socioeconômicos;
+
+--
+
+• ser dotado de comparabilidade histórica;
+
+--
+
+• ser transparente e de acesso público; e
+
+--
+
+• possuir metodologia de cálculo simples e replicável.
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"slideNumberFormat": "%current%",
+"highlightStyle": "github",
+"highlightLines": true,
+"ratio": "16:9",
+"countIncrementalSlides": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
